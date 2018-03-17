@@ -1,6 +1,6 @@
-import React, { Component } from "react";
-import { View, PanResponder, Alert } from "react-native";
-import PropTypes from "prop-types";
+import React, {Component} from 'react';
+import {View, PanResponder, Alert} from 'react-native';
+import PropTypes from 'prop-types';
 
 class DoubleClicker extends Component {
   constructor() {
@@ -11,7 +11,7 @@ class DoubleClicker extends Component {
     this.prevTouchInfo = {
       prevTouchX: 0,
       prevTouchY: 0,
-      prevTouchTimeStamp: 0
+      prevTouchTimeStamp: 0,
     };
 
     this.handlePanResponderGrant = this.handlePanResponderGrant.bind(this);
@@ -20,7 +20,7 @@ class DoubleClicker extends Component {
   componentWillMount() {
     this.myPanResponder = PanResponder.create({
       onStartShouldSetPanResponder: (evt, gestureState) => true,
-      onPanResponderGrant: this.handlePanResponderGrant
+      onPanResponderGrant: this.handlePanResponderGrant,
     });
   }
 
@@ -28,10 +28,10 @@ class DoubleClicker extends Component {
     return Math.sqrt(Math.pow(x1 - x0, 2) + Math.pow(y1 - y0, 2));
   }
 
-  isDoubleTap(currentTouchTimeStamp, { x0, y0 }) {
-    const { prevTouchX, prevTouchY, prevTouchTimeStamp } = this.prevTouchInfo;
+  isDoubleTap(currentTouchTimeStamp, {x0, y0}) {
+    const {prevTouchX, prevTouchY, prevTouchTimeStamp} = this.prevTouchInfo;
     const dt = currentTouchTimeStamp - prevTouchTimeStamp;
-    const { delay, radius } = this.props;
+    const {delay, radius} = this.props;
 
     return dt < delay && this.distance(prevTouchX, prevTouchY, x0, y0) < radius;
   }
@@ -40,19 +40,21 @@ class DoubleClicker extends Component {
     const currentTouchTimeStamp = Date.now();
 
     if (this.isDoubleTap(currentTouchTimeStamp, gestureState)) {
-      this.props.onClick();
+      this.props.onClick(evt, gestureState);
     }
 
     this.prevTouchInfo = {
       prevTouchX: gestureState.x0,
       prevTouchY: gestureState.y0,
-      prevTouchTimeStamp: currentTouchTimeStamp
+      prevTouchTimeStamp: currentTouchTimeStamp,
     };
   }
 
   render() {
     return (
-      <View {...this.myPanResponder.panHandlers}>{this.props.children}</View>
+      <View {...this.props} {...this.myPanResponder.panHandlers}>
+        {this.props.children}
+      </View>
     );
   }
 }
@@ -60,13 +62,13 @@ class DoubleClicker extends Component {
 DoubleClicker.defaultProps = {
   delay: 300,
   radius: 20,
-  onClick: () => Alert.alert("Double Tap Succeed")
+  onClick: () => Alert.alert('Double Tap Succeed'),
 };
 
 DoubleClicker.propTypes = {
   delay: PropTypes.number,
   radius: PropTypes.number,
-  onClick: PropTypes.func
+  onClick: PropTypes.func,
 };
 
 module.exports = DoubleClicker;
