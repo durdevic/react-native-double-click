@@ -27,5 +27,8 @@
   "bugs": {
     "url": "https://github.com/dwicao/react-native-double-click/issues"
   },
-  "homepage": "https://github.com/dwicao/react-native-double-click#readme"
+  "homepage": "https://github.com/dwicao/react-native-double-click#readme",
+  "dependencies": {
+    "prop-types": "^15.6.1"
+  }
 }
