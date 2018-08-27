@@ -14,6 +14,9 @@ class DoubleClicker extends Component {
       prevTouchTimeStamp: 0,
     };
 
+    // number of clicks
+    this.clicks = 0;
+
     this.handlePanResponderGrant = this.handlePanResponderGrant.bind(this);
   }
 
@@ -39,8 +42,28 @@ class DoubleClicker extends Component {
   handlePanResponderGrant(evt, gestureState) {
     const currentTouchTimeStamp = Date.now();
 
-    if (this.isDoubleTap(currentTouchTimeStamp, gestureState)) {
-      this.props.onClick(evt, gestureState);
+    // if (this.isDoubleTap(currentTouchTimeStamp, gestureState)) {
+    //   this.props.onClick(evt, gestureState);
+    // }
+
+    this.clicks++;
+    console.log(this.clicks);
+    
+    if (this.clicks == 1) {
+      setTimeout(() => {
+        if (this.clicks == 1) {
+          // single_click_callback.call(self, event);
+          console.log(this.clicks);
+          console.log('SINGLE');
+          this.props.onClick(evt, gestureState);
+        } else {
+          // double_click_callback.call(self, event);
+          console.log(this.clicks);
+          console.log('DOUBLE');
+          this.props.onDoubleClick(evt, gestureState);
+        }
+        this.clicks = 0;
+      }, this.props.delay || 300);
     }
 
     this.prevTouchInfo = {
