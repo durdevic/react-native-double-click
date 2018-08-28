@@ -20,9 +20,14 @@ export default class doubleClicker extends Component {
     super();
 
     this.handleClick = this.handleClick.bind(this);
+    this.handleDoubleClick = this.handleDoubleClick.bind(this);
   }
 
   handleClick() {
+    Alert.alert('Clicked me once');
+  }
+
+  handleDoubleClick() {
     Alert.alert('This is awesome \n Double tap succeed');
   }
 
@@ -32,7 +37,7 @@ export default class doubleClicker extends Component {
         <Text style={{ fontSize: 20 }}>
           Welcome to React Native!
         </Text>
-        <DoubleClick onClick={this.handleClick}>
+        <DoubleClick onClick={this.handleClick} onDoubleClick={this.handleDoubleClick}>
           <Text style={{ fontSize: 26 }}>
             Please tap me twice!
           </Text>
@@ -49,7 +54,8 @@ export default class doubleClicker extends Component {
 | --- | --- | --- | --- |
 | delay | number | 300 | (in milliseconds) How fast double click/tap be pressed (number below 200 might not worked) |
 | radius | number | 20 | Radius for click/tap |
-| onClick | function | () => Alert.alert('Double Tap Succeed') | Execute function after double click/tap be pressed |
+| onClick | function | () => Alert.alert('Press me once') | Execute function after single click/tap pressed |
+| onDoubleClick | function | () => Alert.alert('Double Tap Succeed') | Execute function after double click/tap be pressed
 
 ## License
 MIT

@@ -78,13 +78,15 @@ class DoubleClicker extends Component {
 DoubleClicker.defaultProps = {
   delay: 300,
   radius: 20,
-  onClick: () => Alert.alert('Double Tap Succeed'),
+  onClick: () => Alert.alert('Press me once'),
+  onDoubleClick: () => Alert.alert('Double Tap Succeed'),
 };
 
 DoubleClicker.propTypes = {
   delay: PropTypes.number,
   radius: PropTypes.number,
   onClick: PropTypes.func,
+  onDoubleClick: PropTypes.func
 };
 
 module.exports = DoubleClicker;
