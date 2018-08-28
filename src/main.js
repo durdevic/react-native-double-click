@@ -46,20 +46,13 @@ class DoubleClicker extends Component {
     //   this.props.onClick(evt, gestureState);
     // }
 
+    // check for single or double click
     this.clicks++;
-    console.log(this.clicks);
-    
     if (this.clicks == 1) {
       setTimeout(() => {
         if (this.clicks == 1) {
-          // single_click_callback.call(self, event);
-          console.log(this.clicks);
-          console.log('SINGLE');
           this.props.onClick(evt, gestureState);
         } else {
-          // double_click_callback.call(self, event);
-          console.log(this.clicks);
-          console.log('DOUBLE');
           this.props.onDoubleClick(evt, gestureState);
         }
         this.clicks = 0;
