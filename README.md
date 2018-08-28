@@ -3,7 +3,7 @@
 A Component Wrapper for Single and Double Click/Tap, made for React Native, works on both Android and iOS.
 
 ## Installation
-* `npm install --save react-native-double-click`
+* `npm install --save react-native-single-double-click`
 
 ## Usage
 ```js
@@ -13,7 +13,7 @@ import {
   View,
   Alert,
 } from 'react-native';
-import DoubleClick from 'react-native-double-click';
+import DoubleClick from 'react-native-single-double-click';
 
 export default class doubleClicker extends Component {
   constructor() {
@@ -39,7 +39,7 @@ export default class doubleClicker extends Component {
         </Text>
         <DoubleClick onClick={this.handleClick} onDoubleClick={this.handleDoubleClick}>
           <Text style={{ fontSize: 26 }}>
-            Please tap me twice!
+            Please tap me twice or once!
           </Text>
         </DoubleClick>
       </View>
