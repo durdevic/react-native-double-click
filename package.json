@@ -1,14 +1,14 @@
 {
-  "name": "react-native-double-click",
-  "version": "1.0.5",
-  "description": "React Native Double Click/Tap",
+  "name": "react-native-single-double-click",
+  "version": "1.1.0",
+  "description": "React Native Single and Double Click/Tap",
   "main": "src/main.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/dwicao/react-native-double-click.git"
+    "url": "git+https://github.com/durdevic/react-native-double-click.git"
   },
   "keywords": [
     "react",
@@ -22,12 +22,12 @@
     "src",
     "README.md"
   ],
-  "author": "Lutfian Dwi Cahyono <lutfiandwica@gmail.com> (https://dwicao.github.io/)",
+  "author": "Lutfian Dwi Cahyono <lutfiandwica@gmail.com> (https://dwicao.github.io/), Uros Durdevic <djurdjevicu@gmail.com> (http://durdevic.me)",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/dwicao/react-native-double-click/issues"
+    "url": "https://github.com/durdevic/react-native-double-click/issues"
   },
-  "homepage": "https://github.com/dwicao/react-native-double-click#readme",
+  "homepage": "https://github.com/durdevic/react-native-double-click#readme",
   "dependencies": {
     "prop-types": "^15.6.1"
   }
