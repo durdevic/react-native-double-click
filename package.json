@@ -1,6 +1,6 @@
 {
   "name": "react-native-single-double-click",
-  "version": "1.1.0",
+  "version": "1.1.1",
   "description": "React Native Single and Double Click/Tap",
   "main": "src/main.js",
   "scripts": {
